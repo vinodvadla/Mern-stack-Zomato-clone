@@ -3,3 +3,7 @@
   font-family: "Almarai", sans-serif;
   font-style: oblique;
 }
+
+.card{
+  border:1px solid gainsboro;
+}
