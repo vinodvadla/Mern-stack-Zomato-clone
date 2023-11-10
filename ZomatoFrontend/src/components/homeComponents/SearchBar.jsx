@@ -12,98 +12,6 @@ function SearchBar() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [viewCards, setViewCards] = useState(false);
-  const data2 = [
-    {
-      _id: "6523b19eb1557c93c7727e6f",
-      name: "KFC",
-      city: "Pune",
-      location_id: 1,
-      city_id: 1,
-      locality: "Puniri",
-      thumb: [
-        "Assets/breakfast.jpg",
-        "Assets/dinner.png",
-        "Assets/drinks.png",
-        "Assets/dinner.png",
-      ],
-      aggregate_rating: 4.5,
-      rating_text: "Excellent",
-      min_price: 333,
-      contact_number: 919453524651,
-      cuisine: [
-        {
-          id: 2,
-          name: "South Indian",
-        },
-        {
-          id: 4,
-          name: "Fast Food",
-        },
-      ],
-      image: "Assets/breakfast.jpg",
-      mealtype_id: 1,
-    },
-    {
-      _id: "6523b19eb1557c93c7727e70",
-      name: "Burger King",
-      city: "Pune",
-      location_id: 1,
-      city_id: 1,
-      locality: "Shalimar Bagh",
-      thumb: [
-        "Assets/breakfast.jpg",
-        "Assets/dinner.png",
-        "Assets/drinks.png",
-        "Assets/dinner.png",
-      ],
-      aggregate_rating: 4.5,
-      rating_text: "Excellent",
-      min_price: 133,
-      contact_number: 919453524651,
-      cuisine: [
-        {
-          id: 2,
-          name: "South Indian",
-        },
-        {
-          id: 4,
-          name: "Fast Food",
-        },
-      ],
-      image: "Assets/breakfast.jpg",
-      mealtype_id: 1,
-    },
-    {
-      _id: "6523b19eb1557c93c7727e71",
-      name: "Dhaba Pune",
-      city: "Pune",
-      location_id: 5,
-      city_id: 1,
-      locality: "Pune Central",
-      thumb: [
-        "Assets/breakfast.jpg",
-        "Assets/dinner.png",
-        "Assets/drinks.png",
-        "Assets/dinner.png",
-      ],
-      aggregate_rating: 3.5,
-      rating_text: "Excellent",
-      min_price: 599,
-      contact_number: 919453524651,
-      cuisine: [
-        {
-          id: 2,
-          name: "South Indian",
-        },
-        {
-          id: 4,
-          name: "Fast Food",
-        },
-      ],
-      image: "Assets/breakfast.jpg",
-      mealtype_id: 2,
-    },
-  ];
 
   // Gettind locations function
   const getLocations = async () => {
@@ -119,7 +27,8 @@ function SearchBar() {
   // Getting restaurants function
   let getRestaurants = async () => {
     let res = await axios.get(`http://localhost:5000/restaurants/All`);
-    let data = [...res.data.restaurants, ...data2];
+    let data = res.data.restaurants;
+    console.log(data);
     let filtered = data.filter((e) => {
       return e.city.toLowerCase() == city.toLowerCase();
     });
@@ -194,9 +103,12 @@ function SearchBar() {
         {search !== ""
           ? data.map((e, i) => {
               return (
-                <Link className="w-full h-full" to="/details">
+                <Link
+                  className="w-full h-full"
+                  to={`/details/${e._id}`}
+                  key={i}
+                >
                   <SearchbarCard
-                    key={i}
                     name={e.name}
                     address={e.locality}
                     image={e.image}
@@ -204,18 +116,7 @@ function SearchBar() {
                 </Link>
               );
             })
-          : restaurants.map((e, i) => {
-              return (
-                <Link className="w-full h-full" to="/details">
-                  <SearchbarCard
-                    key={i}
-                    name={e.name}
-                    address={e.locality}
-                    image={e.image}
-                  />
-                </Link>
-              );
-            })}
+          : ""}
       </div>
     </>
   );

@@ -3,7 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "../styles/Details.css";
 
-function TabsPage() {
+function TabsPage({ mobile, name, address, cuisines, city }) {
   return (
     <div className="p4 mt-10 px-10">
       <Tabs className="w-full" defaultFocus={true} selectedTabClassName="tab">
@@ -19,20 +19,17 @@ function TabsPage() {
           <TabPanel>
             <div className="w-full h-[50vh]">
               <h1 className="font-bold tracking-wide text-xl">Special Items</h1>
+              <h1 className="font-bold tracking-wide text-xl">Cuisines</h1>
             </div>
           </TabPanel>
           <TabPanel className={"duration-200"}>
             <div className="w-full h-[50vh] py-4">
               <h1 className="font-bold tracking-wide text-xl">Phone Number</h1>
-              <h2 className="text-lg font-medium text-red-500">
-                +919876543210
-              </h2>
+              <h2 className="text-lg font-medium text-red-500">+{mobile}</h2>
               <div className="py-10">
-                <h1 className="font-bold tracking-wide text-xl">
-                  The Big chill bakery
-                </h1>
-                <p className="text-sm">Shop 1 Kukatpally,KPHB</p>
-                <p className="text-sm">Hyderabad , 500000</p>
+                <h1 className="font-bold tracking-wide text-xl">{name}</h1>
+                <p className="text-sm">{address}</p>
+                <p className="text-sm">{city}</p>
               </div>
             </div>
           </TabPanel>

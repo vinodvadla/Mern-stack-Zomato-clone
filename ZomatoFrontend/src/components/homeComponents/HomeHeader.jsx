@@ -8,16 +8,10 @@ function HomeHeader() {
   return (
     <div
       className={`w-screen h-[70px] ${
-        pathname == "/filters" || pathname === "/details"
-          ? "bg-red-600"
-          : "bg-transparent"
+        pathname == "/" ? "bg-transparent" : "bg-red-700"
       } flex items-center justify-between px-4`}
     >
-      <div
-        className={`text-white ${
-          pathname === "/details" || pathname === "/filters" ? "hidden" : ""
-        }`}
-      >
+      <div className={`text-white ${pathname === "/" ? "" : "hidden"}`}>
         <AiOutlineMenu size={25} className="md:flex lg:hidden" />
       </div>
       <h1
