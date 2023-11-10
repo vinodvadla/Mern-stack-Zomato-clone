@@ -1,6 +1,6 @@
 function Allfilters() {
   return (
-    <div className="lg:w-[20%] lg:h-full lg:flex-col md:w-[90%] sm:w-[90%] lg:h-full xs:h-full xs:flex-wrap flex justify-between w-[85%] md:flex rounded shadow-black shadow-sm p-4 md:justify-between">
+    <div className="lg:w-[20%] lg:h-full lg:flex-col md:w-[90%] sm:w-[90%] lg:h-full xs:h-full xs:flex-wrap flex-wrap flex justify-between w-[85%] md:flex rounded shadow-black shadow-sm p-4 md:justify-between">
       <div className=" lg:w-full py-2 gap-2 md:w-[25%]">
         <p className="text-md">Select your Location</p>
         <select className="w-full  px-2 py-1 mt-2 rounded border-2 border-gray-300">
