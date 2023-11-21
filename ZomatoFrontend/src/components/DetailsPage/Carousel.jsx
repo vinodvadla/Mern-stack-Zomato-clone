@@ -11,7 +11,7 @@ function Corousel() {
         infiniteLoop={true}
         dynamicHeight={true}
         showStatus={false}
-        showIndicators={true}
+        showIndicators={false}
         showThumbs={false}
         autoPlay={true}
         stopOnHover={true}

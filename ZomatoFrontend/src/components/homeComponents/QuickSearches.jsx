@@ -4,13 +4,11 @@ import axios from "axios";
 
 function QuickSearches() {
   let [foodTypes, setFoodTypes] = useState([]);
-
   let getFoodTypes = async () => {
     let res = await axios.get("http://localhost:5000/mealtypes/All");
     let mealTypes = res.data.mealtypes;
     setFoodTypes(mealTypes);
   };
-
   useEffect(() => {
     getFoodTypes();
   }, []);

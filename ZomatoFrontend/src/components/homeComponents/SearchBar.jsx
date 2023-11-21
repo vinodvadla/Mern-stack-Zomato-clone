@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import SearchbarCard from "./SearchbarCard";
 import { Link } from "react-router-dom";
+import { useCityContext } from "../../hooks/useCityContext";
 
 function SearchBar() {
   const [locations, setLocations] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
-  const [city, setCity] = useState("");
+  const { city, cityDispatch } = useCityContext();
+  // const [city, setCity] = useState("");
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [viewCards, setViewCards] = useState(false);
@@ -28,7 +30,6 @@ function SearchBar() {
   let getRestaurants = async () => {
     let res = await axios.get(`http://localhost:5000/restaurants/All`);
     let data = res.data.restaurants;
-    console.log(data);
     let filtered = data.filter((e) => {
       return e.city.toLowerCase() == city.toLowerCase();
     });
@@ -67,7 +68,7 @@ function SearchBar() {
           <select
             className="w-full px-8 outline-none border-r-2 border-gray-300"
             onChange={(e) => {
-              setCity(e.target.value);
+              cityDispatch({ type: "CHANGE", payload: e.target.value });
             }}
           >
             <option>Select</option>

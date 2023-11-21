@@ -130,7 +130,7 @@ function Home() {
                 autoLoad={true}
                 cssClass="w-[325px] text-white font-bold cursor-pointer h-[55px] flex items-center justify-evenly px-4 bg-blue-700 shadow-sm shadow-black rounded"
                 callback={(res) => {
-                  console.log(res);
+                  UserDispatch({ type: "LOGIN", payload: { ...res } });
                 }}
               />
 
@@ -299,10 +299,6 @@ function Home() {
             >
               <h1 className="text-lg font-semibold text-white">Register</h1>
             </div>
-            {/* <h1 className="text-md text-semibold">
-              Already have an Account ?{" "}
-              <span className=" text-red-500 text-bold text-md">Login</span>
-            </h1> */}
           </div>
         </div>
       </Modal>
