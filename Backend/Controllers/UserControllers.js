@@ -6,6 +6,9 @@ let creteToken = (id) => {
   let token = jwt.sign({ id }, process.env.SECRET);
   return token;
 };
+
+
+
 let signupUser = async (req, res) => {
   try {
     let { name, email, password } = req.body;
