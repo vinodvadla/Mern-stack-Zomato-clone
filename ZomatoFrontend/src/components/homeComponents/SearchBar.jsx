@@ -10,12 +10,10 @@ function SearchBar() {
   const [locations, setLocations] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const { city, cityDispatch } = useCityContext();
-  // const [city, setCity] = useState("");
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [viewCards, setViewCards] = useState(false);
 
-  // Gettind locations function
   const getLocations = async () => {
     let res = await axios.get("http://localhost:5000/locations/All");
     let cit = [];

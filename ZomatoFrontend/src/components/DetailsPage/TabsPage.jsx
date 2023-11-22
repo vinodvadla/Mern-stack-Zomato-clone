@@ -20,6 +20,9 @@ function TabsPage({ mobile, name, address, cuisines, city }) {
             <div className="w-full h-[50vh]">
               <h1 className="font-bold tracking-wide text-xl">Special Items</h1>
               <h1 className="font-bold tracking-wide text-xl">Cuisines</h1>
+              {cuisines&&cuisines.map((e, i) => {
+                return <p key={i}>{e.name}</p>;
+              })}
             </div>
           </TabPanel>
           <TabPanel className={"duration-200"}>

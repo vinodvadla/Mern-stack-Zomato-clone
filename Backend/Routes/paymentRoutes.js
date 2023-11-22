@@ -11,7 +11,7 @@ router.post('/payment', async (req, res) => {
             },
             unit_amount: pro.price * 100,
         },
-        quantity: 1,
+        quantity: pro.qty,
     }))
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],

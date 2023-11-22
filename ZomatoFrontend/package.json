@@ -12,6 +12,7 @@
   "dependencies": {
     "@faker-js/faker": "^8.2.0",
     "@react-oauth/google": "^0.11.1",
+    "@stripe/stripe-js": "^2.2.0",
     "axios": "^1.6.1",
     "faker": "^6.6.6",
     "flowbite-react": "^0.6.4",

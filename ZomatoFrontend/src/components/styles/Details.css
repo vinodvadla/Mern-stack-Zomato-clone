@@ -1,18 +1,13 @@
-.tab::after {
-  content: "";
-  width: 80%;
-  height: 3px;
-  background-color: crimson;
-  position: absolute;
-  right: 10px;
-  top: 90%;
+.tab {
+  background-color: brown;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-}
-.tab {
-  position: relative;
-  transition: 0.2s ease-in-out;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
 }

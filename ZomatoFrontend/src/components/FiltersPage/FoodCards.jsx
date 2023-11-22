@@ -14,6 +14,7 @@ function FoodCards({ restaurants }) {
       setPage(page + 1);
     }
   };
+  
   let decrementPage = () => {
     if (page > 1) {
       setPage(page - 1);
@@ -23,6 +24,7 @@ function FoodCards({ restaurants }) {
   let customPage = (page) => {
     setPage(page);
   };
+
 
   useEffect(() => {
     let items = restaurants.slice((page - 1) * 2, page * 2);
@@ -53,7 +55,7 @@ function FoodCards({ restaurants }) {
         <div className="w-full h-[85%] flex flex-col gap-2">
           {data.map((e, i) => {
             return (
-              <Link to={`/details/${e._id}`}>
+              <Link key={i} to={`/details/${e._id}`}>
                 <Card
                   image={e.image}
                   cuisine={e.cuisine}

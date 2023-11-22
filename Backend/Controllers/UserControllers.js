@@ -52,4 +52,4 @@ let loginUser = async (req, res) => {
 };
 
 
-module.exports={loginUser,signupUser}
+module.exports = { loginUser, signupUser }
