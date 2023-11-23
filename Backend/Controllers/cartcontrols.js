@@ -1,9 +1,9 @@
 const Cart = require('../Models/cart')
-
-
 const addtoCart = async (req, res) => {
     try {
         let { cart } = req.body;
+        console.log(cart)
+        console.log(req.user)
         let exist = await Cart.findOne({ user: req.user })
         if (!exist) {
             await Cart.create({
