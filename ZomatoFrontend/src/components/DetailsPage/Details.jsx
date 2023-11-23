@@ -84,6 +84,7 @@ function Details() {
   useEffect(() => {
     getCart();
   }, []);
+
   useEffect(() => {
     if (cart.length !== 0) {
       let total = 0;
@@ -166,7 +167,7 @@ function Details() {
                               let i = document.getElementById(e.name);
                               let val = +i.value;
                               if (val > 1) i.value = val - 1;
-                              if (val > 0) {
+                              if (val > 1) {
                                 let index = cart.findIndex((item) => {
                                   return item.name === e.name;
                                 });
@@ -197,15 +198,18 @@ function Details() {
                               let index = cart.findIndex((item) => {
                                 return item.name === e.name;
                               });
-                              let req = [...cart];
-                              let item = req[index];
-                              let item2 = {
-                                ...item,
-                                qty: val + 1,
-                              };
-                              console.log(val + 1);
-                              req[index] = item2;
-                              setCart(req);
+
+                              if (val >= 1) {
+                                let req = [...cart];
+                                let item = req[index];
+                                let item2 = {
+                                  ...item,
+                                  qty: val + 1,
+                                };
+
+                                req[index] = item2;
+                                setCart(req);
+                              }
                             }}
                           />
                         </div>
